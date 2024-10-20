@@ -1,0 +1,15 @@
+.main {
+    display: flex;
+    justify-content: center;
+
+    &__image-box {
+        max-height: 500px;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+}

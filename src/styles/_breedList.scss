@@ -1,0 +1,19 @@
+.breed-list {
+    margin: 0 auto;
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    &__box {
+        width: calc(33.333% - 1rem);
+        height: 75px;
+        text-align: center;
+        font-size: 2em;
+        font-family: sans-serif;
+        line-height: 75px;
+    }
+}
