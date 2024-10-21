@@ -21,15 +21,24 @@ class Doggo {
         return fetch(`https://dog.ceo/api/breed/${breedName}/images/random`)
             .then(data => data.json())
             .then(json => {
-                console.log(json.message)
                 return json.message
             });
     }
     createDogBreedElement(breedName) {
         let box = document.createElement('div')
         let name = document.createElement('p')
+        name.textContent = breedName
         box.classList.add('breed-list__box')
         name.classList.add('breed-list__name')
+        box.addEventListener('click', () => {
+            this.getDoggoByBreed(breedName).then(url => {
+                this.img.src = url;
+            });
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        })
         box.appendChild(name)
         this.listField.appendChild(box)
 
@@ -41,8 +50,7 @@ class Doggo {
             });
             this.getDoggoList().then(callback => {
                 for (let element in callback) {
-                    console.log(element)
-                    this.createDogBreedElement()
+                    this.createDogBreedElement(element)
                 }
             })
         });
